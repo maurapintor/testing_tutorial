@@ -1,6 +1,6 @@
 import unittest
 from unittest.mock import MagicMock
-from somma_da_db import somma
+from somma_da_db import Database, somma
 
 
 class TestConMockDatabase(unittest.TestCase):
@@ -14,5 +14,8 @@ class TestConMockDatabase(unittest.TestCase):
         self.assertEqual(risultato, 8)
 
 
-if __name__ == "__main__":
-    unittest.main()
+class TestDatabase(unittest.TestCase):
+    def test_db(self):
+        db = Database()
+        with self.assertRaises(NotImplementedError):
+            db.get_valori()
